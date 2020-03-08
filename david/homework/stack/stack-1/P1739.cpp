@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     string s;
-    int l = 0, r = 0;
+    stack<char> stk;
 
     getline(cin, s, '@');
 
@@ -12,21 +12,28 @@ int main()
     {
         if (s[i] == '(')
         {
-            l++;
+            stk.push(s[i]);
         }
         if (s[i] == ')')
         {
-            r++;
+            if (stk.empty() != true)
+            {
+                stk.pop();
+                continue;
+            }
+
+            printf("NO\n");
+            return 0;
         }
     }
 
-    if (l == r)
+    if (stk.empty() == true)
     {
-        cout << "yes" << endl;
+        printf("YES\n");
     }
     else
     {
-        cout << "no" << endl;
+        printf("NO\n");
     }
     
 
