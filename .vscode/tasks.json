@@ -4,6 +4,7 @@
     "command": "g++",
     "args": [
         "-g",
+        "-std=c++98",
         "-Wall",
         "${file}",
         "-o",
